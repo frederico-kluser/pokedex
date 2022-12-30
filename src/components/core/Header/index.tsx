@@ -1,14 +1,16 @@
-import Image from 'next/image';
-import React from 'react';
+import React, { ReactNode } from 'react';
 
-import logo from '../../../assets/logo.png';
 import style from './style.module.css';
 
-const Header = () => {
+interface InterfaceHeader {
+  children: ReactNode | ReactNode[];
+};
+
+const Header = ({ children }: InterfaceHeader) => {
 
   return (
     <header className={style.container}>
-      <input placeholder='Search pokemon' className={style.inputSearch} />
+      {children}
     </header>
   );
 }
