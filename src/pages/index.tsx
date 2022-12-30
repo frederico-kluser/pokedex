@@ -17,8 +17,13 @@ export default function Home() {
 
   return (
     <PageContainer title="Pokedex" loader={loading}>
-      <Header />
-      <PokemonList pokemons={pokemons} />
+      {!error && (
+        <>
+          <Header />
+          <PokemonList pokemons={pokemons} />
+        </>
+      )}
+      {error && <h1>{error}</h1>}
     </PageContainer>
   )
 }
