@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Loader from 'src/components/core/Loader';
 
 import styles from './style.module.css';
@@ -11,8 +11,15 @@ interface InterfacePokemonCard {
 };
 
 const PokemonCard = ({ img, name, num, type }: InterfacePokemonCard) => {
+  const image = useRef() as React.MutableRefObject<HTMLImageElement>;
   const [loaded, setLoaded] = useState(false);
-  console.log('type :', type);
+  
+
+  useEffect(() => {
+    if (image?.current?.complete) {
+      setLoaded(true);
+    }
+}, [])
 
   return (
     <div className={styles.card}>
@@ -23,9 +30,9 @@ const PokemonCard = ({ img, name, num, type }: InterfacePokemonCard) => {
         <div className={styles.loader}>
           <Loader color='#FFFFFF' loading={!loaded} size={150} transparentColor="#FFCC01" />
         </div>
-        <img className={styles.image} src={img} onLoad={() => {
+        <img alt={`pokemon ${name} image`} ref={image} className={styles.image} src={img} onLoad={() => {
           setLoaded(true);
-        }} />
+        }} width={160} height={160} />
       </>
     </div>
   )
