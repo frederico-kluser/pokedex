@@ -3,9 +3,21 @@
 }
 
 .content {
+    justify-content: flex-start;
     margin: auto;
     max-width: 1366px;
     min-height: 100vh;
     padding: 0 16px;
     width: 100%;
+}
+
+.loaderContainer {
+    align-items: center;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    left: 0px;
+    position: relative;
+    top: 0px;
+    width: 100vw;
 }

@@ -16,7 +16,9 @@ const PageContainer = ({ children, loader, title }: InterfacePageContainer) => (
     <link rel="icon" href="/favicon.ico" />
   </Head>
   <main className={styles.content}>
-    {loader && <Loader size={100} loading />}
+    {loader && (<div className={styles.loaderContainer}>
+      <Loader size={100} loading />
+    </div>)}
     {!loader && children}
   </main>
 </div>);
