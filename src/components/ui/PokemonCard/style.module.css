@@ -1,7 +1,49 @@
 .card {
-    background-color: brown;
-    border-radius: 10px;
+    background-color: #FFCC01;
+    border-radius: 30px;
     height: 200px;
     margin: 16px;
-    width: 300px;
+    overflow: hidden;
+    padding: 30px;
+    position: relative;
+    width: 275px;
+}
+
+.title {
+    margin: 15px 0px;
+}
+
+.type {
+    background-color: white;
+    border-radius: 16px;
+    font-size: 14px;
+    font-weight: 700;
+    height: 30px;
+    line-height: 30px;
+    margin-top: 10px;
+    text-align: center;
+    width: 90px;
+}
+
+.id {
+    color: #FFFFFF;
+    font-size: 17px;
+    font-style: italic;
+    font-weight: 900;
+    position: absolute;
+    right: 30px;
+    top: 16px;
+}
+
+.image {
+    bottom: 0px;
+    position: absolute;
+    right: 0px;
+    width: 160px;
+}
+
+.loader {
+    bottom: 130px;
+    position: absolute;
+    right: 130px;
 }

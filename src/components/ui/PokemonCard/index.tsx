@@ -1,7 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Loader from 'src/components/core/Loader';
 
 import styles from './style.module.css';
 
-const PokemonCard = () => <div className={styles.card}></div>
+interface InterfacePokemonCard {
+  img: string;
+  type: string[];
+  name: string,
+  num: string,
+};
+
+const PokemonCard = ({ img, name, num, type }: InterfacePokemonCard) => {
+  const [loaded, setLoaded] = useState(false);
+  console.log('type :', type);
+
+  return (
+    <div className={styles.card}>
+      <>
+        <h2 className={styles.title}>{ name }</h2>
+        {type.map((item) => <div className={styles.type}>{item}</div>)}
+        <span className={styles.id}>#{num}</span>
+        <div className={styles.loader}>
+          <Loader color='#FFFFFF' loading={!loaded} size={150} transparentColor="#FFCC01" />
+        </div>
+        <img className={styles.image} src={img} onLoad={() => {
+          setLoaded(true);
+        }} />
+      </>
+    </div>
+  )
+};
 
 export default PokemonCard;
