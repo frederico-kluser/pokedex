@@ -15,7 +15,6 @@
 }
 
 .loader {
-    background-color: #212121;
     border-radius: 100%;
     height: 100px;
     overflow: hidden;
@@ -24,7 +23,6 @@
 }
 
 .horizontalDivisor {
-    background-color: #FFFFFF;
     height: 10px;
     position: absolute;
     top: 50%;
@@ -33,8 +31,6 @@
 }
 
 .centerBall {
-    background-color: #000000;
-    border-color: #FFFFFF;
     border-radius: 100%;
     border-style: solid;
     left: 50%;
