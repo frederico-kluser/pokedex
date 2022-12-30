@@ -13,7 +13,6 @@ interface InterfacePokemonCard {
 const PokemonCard = ({ img, name, num, type }: InterfacePokemonCard) => {
   const image = useRef() as React.MutableRefObject<HTMLImageElement>;
   const [loaded, setLoaded] = useState(false);
-  
 
   useEffect(() => {
     if (image?.current?.complete) {
@@ -33,6 +32,7 @@ const PokemonCard = ({ img, name, num, type }: InterfacePokemonCard) => {
         <img alt={`pokemon ${name} image`} ref={image} className={styles.image} src={img} onLoad={() => {
           setLoaded(true);
         }} width={160} height={160} />
+        <div className={styles.cover}></div>
       </>
     </div>
   )
