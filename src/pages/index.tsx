@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import PageContainer from 'src/components/template/PageContainer'
+import PokemonCard from 'src/components/ui/PokemonCard'
 
 import styles from './index.module.css'
 
@@ -11,7 +12,16 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <PageContainer></PageContainer>
+        <PageContainer>
+          <PokemonCard />
+          <PokemonCard />
+          <PokemonCard /> 
+          <PokemonCard /> 
+          <PokemonCard /> 
+          <PokemonCard /> 
+          <PokemonCard /> 
+          <PokemonCard /> 
+        </PageContainer>
       </main>
     </div>
   )
