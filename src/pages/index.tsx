@@ -1,121 +1,24 @@
-import Head from 'next/head'
-import Loader from 'src/components/core/Loader'
+import { useEffect, useState } from 'react'
+import PokemonList from 'src/components/ui/PokemonList';
 import PageContainer from 'src/components/template/PageContainer'
-import PokemonCard from 'src/components/ui/PokemonCard'
-
-import styles from './index.module.css'
+import useFetch from 'src/hooks/useFetch'
+import { TypePokemon } from 'src/types/pokemon';
+import Header from 'src/components/core/Header';
 
 export default function Home() {
-  const pokemon = [{
-    "id": 1,
-    "num": "001",
-    "name": "Bulbasaur",
-    "img": "http://www.serebii.net/pokemongo/pokemon/001.png",
-    "type": [
-      "Grass",
-      "Poison"
-    ],
-    "height": "0.71 m",
-    "weight": "6.9 kg",
-    "candy": "Bulbasaur Candy",
-    "candy_count": 25,
-    "egg": "2 km",
-    "spawn_chance": 0.69,
-    "avg_spawns": 69,
-    "spawn_time": "20:00",
-    "multipliers": [1.58],
-    "weaknesses": [
-      "Fire",
-      "Ice",
-      "Flying",
-      "Psychic"
-    ],
-    "next_evolution": [{
-      "num": "002",
-      "name": "Ivysaur"
-    }, {
-      "num": "003",
-      "name": "Venusaur"
-    }]
-  }, {
-    "id": 2,
-    "num": "002",
-    "name": "Ivysaur",
-    "img": "http://www.serebii.net/pokemongo/pokemon/002.png",
-    "type": [
-      "Grass",
-      "Poison"
-    ],
-    "height": "0.99 m",
-    "weight": "13.0 kg",
-    "candy": "Bulbasaur Candy",
-    "candy_count": 100,
-    "egg": "Not in Eggs",
-    "spawn_chance": 0.042,
-    "avg_spawns": 4.2,
-    "spawn_time": "07:00",
-    "multipliers": [
-      1.2,
-      1.6
-    ],
-    "weaknesses": [
-      "Fire",
-      "Ice",
-      "Flying",
-      "Psychic"
-    ],
-    "prev_evolution": [{
-      "num": "001",
-      "name": "Bulbasaur"
-    }],
-    "next_evolution": [{
-      "num": "003",
-      "name": "Venusaur"
-    }]
-  }, {
-    "id": 3,
-    "num": "003",
-    "name": "Venusaur",
-    "img": "http://www.serebii.net/pokemongo/pokemon/003.png",
-    "type": [
-      "Grass",
-      "Poison"
-    ],
-    "height": "2.01 m",
-    "weight": "100.0 kg",
-    "candy": "Bulbasaur Candy",
-    "egg": "Not in Eggs",
-    "spawn_chance": 0.017,
-    "avg_spawns": 1.7,
-    "spawn_time": "11:30",
-    "multipliers": null,
-    "weaknesses": [
-      "Fire",
-      "Ice",
-      "Flying",
-      "Psychic"
-    ],
-    "prev_evolution": [{
-      "num": "001",
-      "name": "Bulbasaur"
-    }, {
-      "num": "002",
-      "name": "Ivysaur"
-    }]
-  }];
+  const { data, loading, error } = useFetch<{pokemon: TypePokemon[]}>('https://raw.githubusercontent.com/Biuni/PokemonGO-Pokedex/master/pokedex.json');
+  const [pokemons, setPokemons] = useState<TypePokemon[]>([]);
+
+  useEffect(() => {
+    if (data) {
+      setPokemons(data.pokemon);
+    }
+  }, [data]);
 
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <main>
-        <PageContainer>
-          <Loader size={100} loading />
-          {pokemon.map(({ img, name, num, type }) => <PokemonCard key={num} img={img} name={name} num={num} type={type} />)}
-        </PageContainer>
-      </main>
-    </div>
+    <PageContainer title="Pokedex" loader={loading}>
+      <Header />
+      <PokemonList pokemons={pokemons} />
+    </PageContainer>
   )
 }
