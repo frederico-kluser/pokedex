@@ -1,3 +1,5 @@
+![Demonstration](./src/assets/demo.gif)
+
 # Next.js + Jest
 
 This example shows how to configure Jest to work with Next.js.
