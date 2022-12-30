@@ -15,7 +15,6 @@ describe('Loader component', () => {
     // ACT
     const loader = container.getElementsByClassName('loader');
 
-    console.log('loader[0] :', loader[0].getAttribute('style'));
     // ASSERT
     expect(loader.length).toBe(1);
   });
@@ -50,8 +49,6 @@ describe('Loader component', () => {
     // ACT
     const loader = container.getElementsByClassName('loader')[0];
     const centerBall = container.getElementsByClassName('centerBall')[0]
-
-    console.log("loader.getAttribute('style')", loader.getAttribute('style'));
 
     // ASSERT
     expect(loader.getAttribute('style')?.indexOf(`background-color: ${color};`)).not.toBe(-1);
