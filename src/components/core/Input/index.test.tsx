@@ -17,7 +17,7 @@ describe('Input component', () => {
     expect(inputNode).toBeInTheDocument();
   });
 
-  it('render input component', () => {
+  it('check input value', () => {
     // ACT
     const inputNode: HTMLInputElement = screen.getByPlaceholderText(placeholder);
     
