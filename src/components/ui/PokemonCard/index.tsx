@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import Loader from 'src/components/core/Loader';
+import Loader from '../../core/Loader';
 
 import styles from './style.module.css';
 
