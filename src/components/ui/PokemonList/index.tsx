@@ -1,6 +1,6 @@
 import React from 'react';
-import PokemonCard from 'src/components/ui/PokemonCard';
-import { TypePokemon } from 'src/types/pokemon';
+import PokemonCard from '../PokemonCard';
+import { TypePokemon } from '../../../types/pokemon';
 
 import styles from './style.module.css';
 
