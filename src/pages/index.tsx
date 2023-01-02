@@ -6,9 +6,11 @@ import { TypePokemon } from 'src/types/pokemon';
 import Header from 'src/components/core/Header';
 import Input from 'src/components/core/Input';
 import getFilteredArray from 'src/components/functions/filter';
+import { pokemonAPILink } from '../contants/links';
 
 export default function Home() {
-  const { data, loading, error } = useFetch<{pokemon: TypePokemon[]}>('https://raw.githubusercontent.com/Biuni/PokemonGO-Pokedex/master/pokedex.json');
+  const { data, loading, error } = useFetch<{pokemon: TypePokemon[]}>(pokemonAPILink);
+  
   const [pokemons, setPokemons] = useState<TypePokemon[]>([]);
   const [filter, setFilter] = useState<string>('');
 
