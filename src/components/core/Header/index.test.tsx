@@ -16,4 +16,17 @@ describe('Header component', () => {
     // ASSERT
     expect(headerNode).toBeInTheDocument();
   });
+
+  it('check render header children', () => {
+    // ARRANGE
+    const { container } = render(<Header><div className="test"></div></Header>);
+
+    // ACT
+    const divNode = container.getElementsByClassName('test');
+    const headerNode = container.getElementsByClassName('container');
+
+    // ASSERT
+    expect(divNode.length).toBe(1);
+    expect(headerNode.length).toBe(1);
+  });
 });

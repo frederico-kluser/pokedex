@@ -14,10 +14,10 @@ describe('PokemonCard component', () => {
     const { container } = render(<PokemonCard {...defaultProps} />);
 
     // ACT
-    const component = container.getElementsByClassName('card');
+    const cardNode = container.getElementsByClassName('card');
 
     // ASSERT
-    expect(component.length).toBe(1);
+    expect(cardNode.length).toBe(1);
   });
 
   it('check render multiple types', () => {
@@ -25,16 +25,16 @@ describe('PokemonCard component', () => {
     const { container } = render(<PokemonCard {...defaultProps} type={['fire', 'thunder', 'water']} />);
 
     // ACT
-    const types = container.getElementsByClassName('type');
-    const fireType = screen.getByText('fire');
-    const thunderType = screen.getByText('thunder');
-    const waterType = screen.getByText('water');
+    const typesNodes = container.getElementsByClassName('type');
+    const fireTypeNode = screen.getByText('fire');
+    const thunderTypeNode = screen.getByText('thunder');
+    const waterTypeNode = screen.getByText('water');
 
     // ASSERT
-    expect(types.length).toBe(3);
-    expect(fireType).toBeInTheDocument();
-    expect(thunderType).toBeInTheDocument();
-    expect(waterType).toBeInTheDocument();
+    expect(typesNodes.length).toBe(3);
+    expect(fireTypeNode).toBeInTheDocument();
+    expect(thunderTypeNode).toBeInTheDocument();
+    expect(waterTypeNode).toBeInTheDocument();
   });
 
   it('check render id', () => {
@@ -42,10 +42,10 @@ describe('PokemonCard component', () => {
     const { container } = render(<PokemonCard {...defaultProps} num="001" />);
 
     // ACT
-    const numId = screen.getByText('#001');
+    const numIdNode = screen.getByText('#001');
 
     // ASSERT
-    expect(numId).toBeInTheDocument();
+    expect(numIdNode).toBeInTheDocument();
   });
 
   it('check render name', () => {
@@ -53,10 +53,10 @@ describe('PokemonCard component', () => {
     const { container } = render(<PokemonCard {...defaultProps} name="pikachu" />);
 
     // ACT
-    const name = screen.getByText('pikachu');
+    const nameNode = screen.getByText('pikachu');
 
     // ASSERT
-    expect(name).toBeInTheDocument();
+    expect(nameNode).toBeInTheDocument();
   });
 
   it('check render image', () => {
@@ -64,9 +64,9 @@ describe('PokemonCard component', () => {
     const { container } = render(<PokemonCard {...defaultProps} img="http://www.serebii.net/pokemongo/pokemon/001.png" />);
 
     // ACT
-    const image = container.getElementsByClassName('image');
+    const imageNode = container.getElementsByClassName('image');Node
 
     // ASSERT
-    expect(image[0].getAttribute('src')).toBe('http://www.serebii.net/pokemongo/pokemon/001.png');
+    expect(imageNode[0].getAttribute('src')).toBe('http://www.serebii.net/pokemongo/pokemon/001.png');
   });
 });

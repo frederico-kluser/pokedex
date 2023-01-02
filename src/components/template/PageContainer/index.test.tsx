@@ -7,10 +7,10 @@ describe('PageContainer component', () => {
     const { container } = render(<PageContainer title="">test</PageContainer>);
 
     // ACT
-    const pageContainer = container.getElementsByClassName('content');
+    const pageContainerNode = container.getElementsByClassName('content');
 
     // ASSERT
-    expect(pageContainer.length).toBe(1);
+    expect(pageContainerNode.length).toBe(1);
   });
 
   it('check render PageContainer children', () => {
@@ -18,12 +18,12 @@ describe('PageContainer component', () => {
     const { container } = render(<PageContainer title=""><div className="test"></div></PageContainer>);
 
     // ACT
-    const pageContainer = container.getElementsByClassName('test');
-    const loader = container.getElementsByClassName('loader');
+    const pageContainerNode = container.getElementsByClassName('test');
+    const loaderNode = container.getElementsByClassName('loader');
 
     // ASSERT
-    expect(pageContainer.length).toBe(1);
-    expect(loader.length).toBe(0);
+    expect(pageContainerNode.length).toBe(1);
+    expect(loaderNode.length).toBe(0);
   });
 
   it('check dont render PageContainer children', () => {
@@ -31,11 +31,11 @@ describe('PageContainer component', () => {
     const { container } = render(<PageContainer loader title=""><div className="test"></div></PageContainer>);
 
     // ACT
-    const pageContainer = container.getElementsByClassName('test');
-    const loader = container.getElementsByClassName('loader');
+    const pageContainerNode = container.getElementsByClassName('test');
+    const loaderNode = container.getElementsByClassName('loader');
 
     // ASSERT
-    expect(pageContainer.length).toBe(0);
-    expect(loader.length).toBe(1);
+    expect(pageContainerNode.length).toBe(0);
+    expect(loaderNode.length).toBe(1);
   });
 });

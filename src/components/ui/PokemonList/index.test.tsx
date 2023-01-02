@@ -8,10 +8,10 @@ describe('PokemonCard component', () => {
     const { container } = render(<PokemonList pokemons={[]}  />);
 
     // ACT
-    const component = container.getElementsByClassName('container');
+    const containerNode = container.getElementsByClassName('container');
 
     // ASSERT
-    expect(component.length).toBe(1);
+    expect(containerNode.length).toBe(1);
   });
 
   it('check render multiple cards', () => {
@@ -118,9 +118,9 @@ describe('PokemonCard component', () => {
     const { container } = render(<PokemonList pokemons={pokemons}  />);
 
     // ACT
-    const cards = container.getElementsByClassName('card');
+    const cardsNode = container.getElementsByClassName('card');
 
     // ASSERT
-    expect(cards.length).toBe(pokemons.length);
+    expect(cardsNode.length).toBe(pokemons.length);
   });
 });
