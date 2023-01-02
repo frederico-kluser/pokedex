@@ -1,9 +1,10 @@
 .container {
     align-content: center;
+    align-items: center;
     background-color: #0168b5;
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     height: 80px;
     justify-content: center;
     left: 0px;
