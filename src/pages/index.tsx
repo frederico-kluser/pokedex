@@ -7,6 +7,8 @@ import Header from 'src/components/core/Header';
 import Input from 'src/components/core/Input';
 import getFilteredArray from 'src/components/functions/filter';
 import { pokemonAPILink } from '../contants/links';
+import ToggleTheme from 'src/components/core/ToggleTheme';
+import ThemeProvider from 'src/context/theme';
 
 export default function Home() {
   const { data, loading, error } = useFetch<{pokemon: TypePokemon[]}>(pokemonAPILink);
@@ -21,16 +23,21 @@ export default function Home() {
   }, [data]);
 
   return (
-    <PageContainer title="Pokedex" loader={loading}>
-      {!error && (
-        <>
-          <Header>
-            <Input placeholder='Search pokemon name' state={filter} setState={setFilter} />
-          </Header>
-          <PokemonList pokemons={getFilteredArray(pokemons, filter)} />
-        </>
-      )}
-      {error && <h1>{error}</h1>}
-    </PageContainer>
+    <ThemeProvider>
+      <PageContainer title="Pokedex" loader={loading}>
+        {!error && (
+          <>
+            <Header>
+              <>
+              <Input placeholder='Search pokemon name' state={filter} setState={setFilter} />
+              <ToggleTheme />
+              </>
+            </Header>
+            <PokemonList pokemons={getFilteredArray(pokemons, filter)} />
+          </>
+        )}
+        {error && <h1>{error}</h1>}
+      </PageContainer>
+    </ThemeProvider>
   )
 }
