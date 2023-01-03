@@ -1,6 +1,6 @@
 import { createContext, Dispatch, ReactNode, SetStateAction, useState } from 'react';
 
-type TypeTheme = 'light' | 'dark';
+export type TypeTheme = 'light' | 'dark';
 
 interface InterfaceThemeContext {
 	theme: TypeTheme;
@@ -14,7 +14,7 @@ const ThemeContextDefaultValue: InterfaceThemeContext = {
 
 export const ThemeContext = createContext(ThemeContextDefaultValue);
 
-interface InterfaceThemeProvider {
+export interface InterfaceThemeProvider {
 	children: ReactNode;
 }
 
