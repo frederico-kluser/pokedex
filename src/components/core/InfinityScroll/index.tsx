@@ -31,8 +31,8 @@ const InfinityScroll = ({
   const loaderRef = useRef(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver((event) => {
-      const { isIntersecting } = event[0];
+    const observer = new IntersectionObserver(([IntersectionObserverEntry]) => {
+      const { isIntersecting } = IntersectionObserverEntry;
       if (isIntersecting) {
         endOfListCallback();
       }
