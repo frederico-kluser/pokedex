@@ -1,6 +1,13 @@
-import { render, screen } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import PokemonList from ".";
-import PokemonCard from ".";
+
+const mockIntersectionObserver = jest.fn();
+mockIntersectionObserver.mockReturnValue({
+  observe: () => null,
+  unobserve: () => null,
+  disconnect: () => null
+});
+window.IntersectionObserver = mockIntersectionObserver;
 
 describe('PokemonCard component', () => {
   it('render PokemonCard component', () => {

@@ -12,7 +12,7 @@ import ThemeProvider from 'src/context/theme';
 
 export default function Home() {
   const { data, loading, error } = useFetch<{pokemon: TypePokemon[]}>(pokemonAPILink);
-  
+
   const [pokemons, setPokemons] = useState<TypePokemon[]>([]);
   const [filter, setFilter] = useState<string>('');
 
@@ -39,5 +39,5 @@ export default function Home() {
         {error && <h1>{error}</h1>}
       </PageContainer>
     </ThemeProvider>
-  )
-}
+  );
+};
