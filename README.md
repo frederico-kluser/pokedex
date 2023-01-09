@@ -1,27 +1,22 @@
 ![Demonstration](./src/assets/demo.gif)
 
-# Next.js + Jest
+# Pokedex
 
-This example shows how to configure Jest to work with Next.js.
+Este é um projeto de lista com filtro, e infinity scroll
 
-This includes Next.js' built-in support for Global CSS, CSS Modules and TypeScript.
+## Technologies
 
-## How to Use
+* Typescript
+* React.Js
+* Next
+* Jest
+* React Testing Library
+* Context
 
-Quickly get started using [Create Next App](https://github.com/vercel/next.js/tree/canary/packages/create-next-app#readme)!
-
-In your terminal, run the following command:
-
-```bash
-npx create-next-app --example with-jest with-jest-app
-```
-
-```bash
-yarn create next-app --example with-jest with-jest-app
-```
+## Run Project
 
 ```bash
-pnpm create next-app --example with-jest with-jest-app
+npm run dev
 ```
 
 ## Run Jest Tests
